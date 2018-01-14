@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <title>Ninja Gold!</title>
+    <head>
+        <style type='text/css'>
+            .wrapper {
+            }
+            .hideouts {
+                width:150px;
+                height : 200px;
+                border : 5px;
+                border-color : black
+                display : inline-block;
+                text-align : center;
+            }
+            .location {
+                width:150px;
+                height: 20px;
+                border: 5px;
+                border-color: black;
+                display: inline-block;
+                text-align: center;
+                vertical-align:top;
+                margin-left:5px;
+            }
+            .box {
+                width:350px;
+                height:auto;
+                border:5px solid black;
+                overflow: scroll;
+                background-color: #f08b34;
+            }
+            .won {
+                padding:0px;
+                margin:0px;
+            }
+            .reset {
+			height:50px;
+			width:100px;
+		}
+            h2 {
+                background-color: gold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>For Ninja, Life is a Gamble, Play the Ninja Game!</h1>
+        <h2>You carry: {{info['gold']}}</h2>
+        <div class='wrapper'>
+            <div class='location'>
+                <form action='/process' method='post'>
+                    <input type='hidden' name='play' value='farm'>
+                    <input type='submit' name='submit' value='farm banzaii!!'>
+                </form>
+            </div>
+            <div class='location'>
+                <form action='/process' method='post'>
+                    <input type='hidden' name='play' value='cave'>
+                    <input type='submit' name='submit' value='cave banzaii!!'>
+                </form>
+            </div>
+            
+            <div class='location'>
+                    <form action='/process' method='post'>
+                        <input type='hidden' name='play' value='casino'>
+                        <input type='submit' name='submit' value='casino banzaii!!'>
+                    </form>
+                </div>
+        </div>
+            
+            <div class='box'>
+                    {{info['play'] | safe}}
+                </form>
+            </div>   
+            <div class='reset'>
+            <p>Reset the game</p>
+                <form action='/reset' method='post'>
+                    <input type='hidden' name='reset' value='reset'>
+                    <input type="submit" name='submit' value='refresh'>
+                </form>
+            </div> 
+    </body>
+</html>
